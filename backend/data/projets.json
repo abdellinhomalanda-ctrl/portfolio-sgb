@@ -17,7 +17,9 @@
     "domaine": "Sûreté électronique",
     "ton": "blue",
     "visuel": "/projets/videosurveillance-entrepot.svg",
-    "typeVisuel": "schema"
+    "typeVisuel": "schema",
+    "scene": "/scenes/videosurveillance-entrepot.webp",
+    "descriptionScene": "Entrepôt logistique avec une caméra de surveillance au premier plan"
   },
   {
     "slug": "smart-mailbox-notifier",
@@ -37,7 +39,9 @@
     "domaine": "IoT et LoRa",
     "ton": "green",
     "visuel": "/projets/smart-mailbox-notifier.svg",
-    "typeVisuel": "schema"
+    "typeVisuel": "schema",
+    "scene": "/scenes/smart-mailbox-notifier.webp",
+    "descriptionScene": "Boîte aux lettres connectée, enveloppe et capteur sans fil"
   },
   {
     "slug": "pilotage-crestron",
@@ -57,7 +61,9 @@
     "domaine": "Intégration audiovisuelle",
     "ton": "violet",
     "visuel": "/projets/pilotage-crestron.svg",
-    "typeVisuel": "schema"
+    "typeVisuel": "schema",
+    "scene": "/scenes/pilotage-crestron.webp",
+    "descriptionScene": "Salle de réunion avec écran, caméra et commande tactile"
   },
   {
     "slug": "mokonzi-barber",
@@ -79,7 +85,9 @@
     ],
     "visuel": "/logos/mokonzi-barber.webp",
     "typeVisuel": "logo",
-    "illustration": "Logo Mokonzi Barber"
+    "illustration": "Logo Mokonzi Barber",
+    "scene": "/scenes/mokonzi-barber.webp",
+    "descriptionScene": "Fauteuil de barbier et tondeuse dans un décor noir et or"
   },
   {
     "slug": "toko-gerer",
@@ -101,7 +109,9 @@
     ],
     "visuel": "/logos/toko-gerer.webp",
     "typeVisuel": "logo",
-    "illustration": "Logo Toko Gérer"
+    "illustration": "Logo Toko Gérer",
+    "scene": "/scenes/toko-gerer.webp",
+    "descriptionScene": "Petite boutique aménagée avec des rayons et une caisse"
   },
   {
     "slug": "ticket-gagnant",
@@ -122,6 +132,8 @@
     ],
     "visuel": "/logos/ticket-gagnant.webp",
     "typeVisuel": "logo",
-    "illustration": "Logo Ticket Gagnant"
+    "illustration": "Logo Ticket Gagnant",
+    "scene": "/scenes/ticket-gagnant.webp",
+    "descriptionScene": "Ticket doré entouré d’une couronne et d’un laurier"
   }
 ]

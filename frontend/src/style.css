@@ -62,14 +62,21 @@ p, li { color: var(--secondaire); line-height: 1.65; }
 .contenu-carte h3 a { color: var(--texte); text-decoration-thickness: 1px; text-underline-offset: .22em; }
 .contenu-carte p { margin: 0; }
 .tags { color: var(--accent); font-size: .8rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
-.visuel { display: grid; place-items: center; aspect-ratio: 2; overflow: hidden; background: #102a22; }
-.visuel img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.visuel-logo { background: #0d1523; }
-.visuel-logo[data-ton="gold"] { background: #151314; }
-.visuel-logo img { width: 85%; height: 100%; object-fit: contain; }
+.visuel { position: relative; aspect-ratio: 5 / 4; overflow: hidden; isolation: isolate; background: #142239; }
+.visuel .scene { display: block; width: 100%; height: 100%; object-fit: cover; }
+.visuel .logo-projet { position: absolute; left: .75rem; bottom: .75rem; width: clamp(3.6rem, 18%, 5.25rem); aspect-ratio: 1; object-fit: contain; border-radius: .55rem; border: 1px solid #ffffff42; box-shadow: 0 .35rem 1.25rem #0008; background: #111; }
 .detail { max-width: 53rem; margin-top: 2rem; }
 .detail h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); }
-.detail .visuel { border-radius: .6rem; margin: 1.5rem 0 2rem; max-width: 42rem; }
+.scene-detail { max-width: 39rem; margin: 1.5rem 0 2rem; }
+.scene-detail .visuel { aspect-ratio: 1; border-radius: .6rem; }
+.scene-detail figcaption { margin-top: .5rem; font-size: .85rem; color: var(--secondaire); }
+.schema-projet { display: block; width: min(100%, 40rem); height: auto; border-radius: .6rem; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .carte:has(.scene) { transition: transform .25s ease, box-shadow .25s ease; }
+  .carte .scene { transition: transform .35s ease; }
+  .carte:has(.scene):is(:hover, :focus-within) { transform: translateY(-.25rem); box-shadow: 0 1rem 2rem #0003; }
+  .carte:is(:hover, :focus-within) .scene { transform: scale(1.045); }
+}
 .filtres { display: flex; gap: 1rem; flex-wrap: wrap; }
 .filtres label { display: grid; gap: .4rem; }
 input, select { padding: .65rem; border: 1px solid var(--bord); border-radius: .4rem; color: inherit; background: var(--surface); font: inherit; max-width: 100%; }

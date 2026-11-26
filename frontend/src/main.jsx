@@ -12,10 +12,12 @@ function Donnees({ chemin, children }) {
 }
 
 function Visuel({ projet }) {
-  if (!projet.visuel) return null
   return (
-    <div className={`visuel ${projet.typeVisuel === 'logo' ? 'visuel-logo' : ''}`} data-ton={projet.ton}>
-      <img src={projet.visuel} alt={projet.illustration} loading="lazy" />
+    <div className="visuel" data-ton={projet.ton}>
+      <img className="scene" src={projet.scene} alt={projet.descriptionScene} width="512" height="512" loading="lazy" />
+      {projet.typeVisuel === 'logo' && (
+        <img className="logo-projet" src={projet.visuel} alt={projet.illustration} loading="lazy" />
+      )}
     </div>
   )
 }
@@ -102,11 +104,18 @@ function Detail() {
         <p className="tags">{projet.domaine}</p>
         <h1>{projet.titre}</h1>
         <p>{projet.resume}</p>
-        <Visuel projet={projet} />
+        <figure className="scene-detail">
+          <Visuel projet={projet} />
+          <figcaption>Illustration 3D générée pour présenter le projet.</figcaption>
+        </figure>
         <h2>Contexte</h2>
         <p>{projet.contexte}</p>
         <h2>Mon travail</h2>
         <ul>{projet.realisations.map((element) => <li key={element}>{element}</li>)}</ul>
+        {projet.typeVisuel === 'schema' && <>
+          <h2>Schéma technique</h2>
+          <img className="schema-projet" src={projet.visuel} alt={projet.illustration} width="640" height="320" loading="lazy" />
+        </>}
       </article>
     )}</Donnees>
   </>
