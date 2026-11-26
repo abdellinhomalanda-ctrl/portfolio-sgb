@@ -1,0 +1,5 @@
+[
+  { "titre": "Courant faible", "elements": ["Vidéosurveillance IP", "Intrusion", "Contrôle d’accès", "Affichage dynamique"] },
+  { "titre": "Intégration", "elements": ["Crestron SIMPL", "Réseaux IP", "LoRa", "Raspberry Pi"] },
+  { "titre": "Études et outils", "elements": ["AutoCAD", "DIALux", "DMSS"] }
+]
