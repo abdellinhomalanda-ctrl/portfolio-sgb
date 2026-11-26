@@ -12,7 +12,12 @@
       "Étudier la couverture du site par des caméras 4K avec infrarouge.",
       "Présenter une architecture de télésurveillance avec liaisons IP et 4G."
     ],
-    "illustration": "Schéma de liaison entre une caméra, un enregistreur et la télésurveillance IP et 4G"
+    "illustration": "Schéma de liaison entre une caméra, un enregistreur et la télésurveillance IP et 4G",
+    "groupe": "Technique",
+    "domaine": "Sûreté électronique",
+    "ton": "blue",
+    "visuel": "/projets/videosurveillance-entrepot.svg",
+    "typeVisuel": "schema"
   },
   {
     "slug": "smart-mailbox-notifier",
@@ -27,7 +32,12 @@
       "Utiliser un capteur ultrason HC-SR04 pour la détection.",
       "Prévoir la transmission via un module LoRa-E5 et une passerelle LPS8N."
     ],
-    "illustration": "Schéma de transmission entre la boîte aux lettres, le capteur et la passerelle LoRa"
+    "illustration": "Schéma de transmission entre la boîte aux lettres, le capteur et la passerelle LoRa",
+    "groupe": "Technique",
+    "domaine": "IoT et LoRa",
+    "ton": "green",
+    "visuel": "/projets/smart-mailbox-notifier.svg",
+    "typeVisuel": "schema"
   },
   {
     "slug": "pilotage-crestron",
@@ -42,6 +52,76 @@
       "Préparer les commandes et les retours d’état dans Crestron SIMPL.",
       "Documenter les joins et les macros de commande."
     ],
-    "illustration": "Schéma des équipements audiovisuels reliés à la commande Crestron"
+    "illustration": "Schéma des équipements audiovisuels reliés à la commande Crestron",
+    "groupe": "Technique",
+    "domaine": "Intégration audiovisuelle",
+    "ton": "violet",
+    "visuel": "/projets/pilotage-crestron.svg",
+    "typeVisuel": "schema"
+  },
+  {
+    "slug": "mokonzi-barber",
+    "titre": "Mokonzi Barber",
+    "resume": "Une activité de coiffure masculine à Créteil, avec une application conçue autour des besoins du métier.",
+    "groupe": "Entrepreneuriat",
+    "domaine": "Coiffure et outils numériques",
+    "ton": "gold",
+    "tags": [
+      "Coiffure",
+      "Application",
+      "Organisation"
+    ],
+    "contexte": "Je développe ma pratique de la coiffure masculine et je structure l’activité autour de la prise de rendez-vous, du suivi client et de l’encaissement.",
+    "realisations": [
+      "Développer une identité visuelle et des supports pour présenter mes services.",
+      "Concevoir une application pour centraliser les rendez-vous, les prestations et les paiements.",
+      "Produire des contenus qui montrent mes réalisations en coupe."
+    ],
+    "visuel": "/logos/mokonzi-barber.webp",
+    "typeVisuel": "logo",
+    "illustration": "Logo Mokonzi Barber"
+  },
+  {
+    "slug": "toko-gerer",
+    "titre": "Toko Gérer",
+    "resume": "Former du personnel et assurer le suivi des commerces dont le propriétaire gère son activité à distance.",
+    "groupe": "Entrepreneuriat",
+    "domaine": "Formation et emploi",
+    "ton": "green",
+    "tags": [
+      "Formation",
+      "Emploi",
+      "Services"
+    ],
+    "contexte": "Un projet Ticket Gagnant. Toko Gérer recrute, forme et rémunère les intervenants. Le commerce règle un forfait mensuel pour la mission et son suivi.",
+    "realisations": [
+      "Définir le recrutement, la formation et la mise en mission des profils caisse et vente.",
+      "Prévoir le suivi de la présence, des stocks et de la caisse par un coordinateur.",
+      "Préparer un premier test en salon et un pilote auprès d’un commerce."
+    ],
+    "visuel": "/logos/toko-gerer.webp",
+    "typeVisuel": "logo",
+    "illustration": "Logo Toko Gérer"
+  },
+  {
+    "slug": "ticket-gagnant",
+    "titre": "Ticket Gagnant",
+    "resume": "Un label que je développe pour donner une identité commune à mes projets actuels et futurs.",
+    "groupe": "Entrepreneuriat",
+    "domaine": "Identité de marque",
+    "ton": "gold",
+    "tags": [
+      "Marque",
+      "Communication",
+      "Entrepreneuriat"
+    ],
+    "contexte": "Ticket Gagnant me sert de cadre pour présenter plusieurs projets sous une identité commune.",
+    "realisations": [
+      "Définir le rôle du label et sa place par rapport aux projets qu’il rassemble.",
+      "Construire une identité visuelle autour du monogramme TG, du laurier et de la couronne."
+    ],
+    "visuel": "/logos/ticket-gagnant.webp",
+    "typeVisuel": "logo",
+    "illustration": "Logo Ticket Gagnant"
   }
 ]

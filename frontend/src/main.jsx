@@ -11,13 +11,24 @@ function Donnees({ chemin, children }) {
   return children(data)
 }
 
+function Visuel({ projet }) {
+  if (!projet.visuel) return null
+  return (
+    <div className={`visuel ${projet.typeVisuel === 'logo' ? 'visuel-logo' : ''}`} data-ton={projet.ton}>
+      <img src={projet.visuel} alt={projet.illustration} loading="lazy" />
+    </div>
+  )
+}
+
 function Cartes({ projets }) {
   return <div className="grille">{projets.map((projet) => (
-    <article className="carte" key={projet.slug}>
-      <img className="illustration" src={`/projets/${projet.slug}.svg`} alt={projet.illustration} width="640" height="320" loading="lazy" />
-      <p className="tags">{projet.tags.join(' · ')}</p>
-      <h2><Link to={`/projets/${projet.slug}`}>{projet.titre}</Link></h2>
-      <p>{projet.resume}</p>
+    <article className="carte" key={projet.slug} data-ton={projet.ton}>
+      <Visuel projet={projet} />
+      <div className="contenu-carte">
+        <p className="tags">{projet.domaine}</p>
+        <h3><Link to={`/projets/${projet.slug}`}>{projet.titre}</Link></h3>
+        <p>{projet.resume}</p>
+      </div>
     </article>
   ))}</div>
 }
@@ -26,31 +37,51 @@ function Accueil() {
   return <>
     <Donnees chemin="/api/profil">{(profil) => (
       <section className="hero">
-        <p className="tags">{profil.nom}</p>
-        <h1>{profil.titre}</h1>
-        <p>{profil.accroche}</p>
-        <Link className="action" to="/projets">Voir mes projets</Link>
+        <div>
+          <p className="tags">Smart & Green Building</p>
+          <h1>{profil.nom}</h1>
+          <h2>{profil.titre}</h2>
+          <p>{profil.accroche}</p>
+          <div className="actions">
+            <Link className="action" to="/projets">Explorer mes projets</Link>
+            <Link className="action secondaire" to="/parcours">Voir mon parcours</Link>
+          </div>
+        </div>
+        <div className="hero-monogramme" aria-hidden="true"><span>AM</span></div>
       </section>
     )}</Donnees>
-    <section>
-      <h2>Projets sélectionnés</h2>
-      <Donnees chemin="/api/projets">{(projets) => <Cartes projets={projets.slice(0, 3)} />}</Donnees>
-    </section>
+    <Donnees chemin="/api/projets">{(projets) => <>
+      <section className="selection">
+        <h2>Projets techniques</h2>
+        <Cartes projets={projets.filter(({ groupe }) => groupe === 'Technique')} />
+      </section>
+      <section className="selection">
+        <h2>Projets entrepreneuriaux</h2>
+        <Cartes projets={projets.filter(({ groupe }) => groupe === 'Entrepreneuriat')} />
+      </section>
+    </>}</Donnees>
   </>
 }
 
 function Catalogue({ projets }) {
   const [theme, setTheme] = useState('')
+  const [groupe, setGroupe] = useState('')
   const [recherche, setRecherche] = useState('')
   const tags = [...new Set(projets.flatMap((projet) => projet.tags))].sort()
   const requete = recherche.trim().toLocaleLowerCase('fr')
-  const visibles = projets.filter(({ titre, tags, resume }) =>
+  const visibles = projets.filter(({ titre, tags, resume, groupe: categorie }) =>
+    (!groupe || groupe === categorie) &&
     (!theme || tags.includes(theme)) &&
     [titre, resume, ...tags].join(' ').toLocaleLowerCase('fr').includes(requete)
   )
 
   return <>
     <div className="filtres">
+      <label>Catégorie <select value={groupe} onChange={(event) => setGroupe(event.target.value)}>
+        <option value="">Toutes les catégories</option>
+        <option>Technique</option>
+        <option>Entrepreneuriat</option>
+      </select></label>
       <label>Thème <select value={theme} onChange={(event) => setTheme(event.target.value)}>
         <option value="">Tous les thèmes</option>
         {tags.map((tag) => <option key={tag}>{tag}</option>)}
@@ -68,10 +99,10 @@ function Detail() {
     <Link to="/projets">← Retour aux projets</Link>
     <Donnees chemin={`/api/projets/${encodeURIComponent(slug)}`}>{(projet) => (
       <article className="detail">
-        <p className="tags">{projet.tags.join(' · ')}</p>
+        <p className="tags">{projet.domaine}</p>
         <h1>{projet.titre}</h1>
         <p>{projet.resume}</p>
-        <img className="illustration" src={`/projets/${projet.slug}.svg`} alt={projet.illustration} width="640" height="320" />
+        <Visuel projet={projet} />
         <h2>Contexte</h2>
         <p>{projet.contexte}</p>
         <h2>Mon travail</h2>
@@ -121,7 +152,7 @@ function App() {
 
   return <>
     <header>
-      <Link className="marque" to="/">Abdel Malanda</Link>
+      <Link className="marque" to="/"><span aria-hidden="true">AM</span> Abdel Malanda</Link>
       <nav aria-label="Navigation principale">
         <NavLink to="/" end>Accueil</NavLink>
         <NavLink to="/projets">Projets</NavLink>
@@ -140,7 +171,7 @@ function App() {
         <Route path="*" element={<><h1>Page introuvable</h1><Link to="/">Retour à l’accueil</Link></>} />
       </Routes>
     </main>
-    <footer>Abdel Malanda · Portfolio SGB</footer>
+    <footer><span>Abdel Malanda · Portfolio</span><a href="https://github.com/abdellinhomalanda-ctrl">GitHub</a></footer>
   </>
 }
 
