@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Link, NavLink, Route, Routes, useParams } from 'react-router'
 import useApi from './useApi'
@@ -12,12 +12,48 @@ function Donnees({ chemin, children }) {
 }
 
 function Visuel({ projet }) {
+  const cadre = useRef(null)
+  const [animer, setAnimer] = useState(false)
+
+  useEffect(() => {
+    const element = cadre.current
+    if (!element || !('IntersectionObserver' in window)) return
+    const observer = new IntersectionObserver(([entree]) => {
+      if (!entree.isIntersecting) return
+      setAnimer(true)
+      observer.disconnect()
+    }, { threshold: 0.3 })
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [])
+
+  function incliner(event) {
+    if (event.pointerType === 'touch' || !matchMedia('(prefers-reduced-motion: no-preference)').matches) return
+    const element = event.currentTarget
+    const { left, top, width, height } = element.getBoundingClientRect()
+    const x = (event.clientX - left) / width - 0.5
+    const y = (event.clientY - top) / height - 0.5
+    element.style.setProperty('--inclinaison-x', `${y * -14}deg`)
+    element.style.setProperty('--inclinaison-y', `${x * 18}deg`)
+  }
+
+  function recentrer(event) {
+    event.currentTarget.style.removeProperty('--inclinaison-x')
+    event.currentTarget.style.removeProperty('--inclinaison-y')
+  }
+
   return (
-    <div className="visuel" data-ton={projet.ton}>
-      <img className="scene" src={projet.scene} alt={projet.descriptionScene} width="512" height="512" loading="lazy" />
-      {projet.typeVisuel === 'logo' && (
-        <img className="logo-projet" src={projet.visuel} alt={projet.illustration} loading="lazy" />
-      )}
+    <div className="visuel" ref={cadre} onPointerMove={incliner} onPointerLeave={recentrer} onPointerCancel={recentrer}>
+      <div className="inclinaison">
+        <div className={animer ? 'plateau plateau-anime' : 'plateau'}>
+          <div className="fond-scene">
+            <img className="scene" src={projet.scene} alt={projet.descriptionScene} width="512" height="512" loading="lazy" />
+          </div>
+          {projet.typeVisuel === 'logo' && (
+            <img className="logo-projet" src={projet.visuel} alt={projet.illustration} loading="lazy" />
+          )}
+        </div>
+      </div>
     </div>
   )
 }
@@ -106,7 +142,7 @@ function Detail() {
         <p>{projet.resume}</p>
         <figure className="scene-detail">
           <Visuel projet={projet} />
-          <figcaption>Illustration 3D générée pour présenter le projet.</figcaption>
+          <figcaption>Illustration 3D animée pour présenter le projet.</figcaption>
         </figure>
         <h2>Contexte</h2>
         <p>{projet.contexte}</p>

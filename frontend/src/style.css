@@ -63,6 +63,9 @@ p, li { color: var(--secondaire); line-height: 1.65; }
 .contenu-carte p { margin: 0; }
 .tags { color: var(--accent); font-size: .8rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
 .visuel { position: relative; aspect-ratio: 5 / 4; overflow: hidden; isolation: isolate; background: #142239; }
+.inclinaison, .plateau, .fond-scene { position: absolute; inset: 0; }
+.inclinaison, .plateau { transform-style: preserve-3d; }
+.fond-scene { overflow: hidden; border-radius: inherit; }
 .visuel .scene { display: block; width: 100%; height: 100%; object-fit: cover; }
 .visuel .logo-projet { position: absolute; left: .75rem; bottom: .75rem; width: clamp(3.6rem, 18%, 5.25rem); aspect-ratio: 1; object-fit: contain; border-radius: .55rem; border: 1px solid #ffffff42; box-shadow: 0 .35rem 1.25rem #0008; background: #111; }
 .detail { max-width: 53rem; margin-top: 2rem; }
@@ -71,11 +74,26 @@ p, li { color: var(--secondaire); line-height: 1.65; }
 .scene-detail .visuel { aspect-ratio: 1; border-radius: .6rem; }
 .scene-detail figcaption { margin-top: .5rem; font-size: .85rem; color: var(--secondaire); }
 .schema-projet { display: block; width: min(100%, 40rem); height: auto; border-radius: .6rem; }
-@media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .carte:has(.scene) { transition: transform .25s ease, box-shadow .25s ease; }
-  .carte .scene { transition: transform .35s ease; }
-  .carte:has(.scene):is(:hover, :focus-within) { transform: translateY(-.25rem); box-shadow: 0 1rem 2rem #0003; }
-  .carte:is(:hover, :focus-within) .scene { transform: scale(1.045); }
+@media (prefers-reduced-motion: no-preference) {
+  .visuel { perspective: 850px; }
+  .inclinaison {
+    transform: rotateX(var(--inclinaison-x, 0deg)) rotateY(var(--inclinaison-y, 0deg));
+    transition: transform .24s ease-out;
+  }
+  .fond-scene { inset: -4%; }
+  .logo-projet { transform: translateZ(40px); }
+  .plateau-anime { animation: mouvement-scene 3.6s cubic-bezier(.37,.08,.3,1) both; }
+  .plateau-anime .scene { animation: mouvement-image 3.6s ease-in-out both; }
+  @keyframes mouvement-scene {
+    0% { transform: rotateX(7deg) rotateY(-13deg) scale(1.08); }
+    48% { transform: rotateX(-4deg) rotateY(8deg) scale(1.045); }
+    100% { transform: rotateX(0) rotateY(0) scale(1); }
+  }
+  @keyframes mouvement-image {
+    0% { transform: scale(1.16) translateX(-3%); }
+    48% { transform: scale(1.09) translateX(2%); }
+    100% { transform: scale(1); }
+  }
 }
 .filtres { display: flex; gap: 1rem; flex-wrap: wrap; }
 .filtres label { display: grid; gap: .4rem; }
