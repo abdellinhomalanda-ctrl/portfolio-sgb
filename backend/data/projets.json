@@ -3,24 +3,45 @@
     "slug": "videosurveillance-entrepot",
     "titre": "Vidéosurveillance d’un entrepôt",
     "resume": "Étude d’une solution de vidéoprotection pour un entrepôt de 10 000 m².",
-    "tags": ["Sûreté", "Réseau"],
+    "tags": [
+      "Sûreté",
+      "Réseau"
+    ],
     "contexte": "Projet documenté dans mon rapport d’alternance chez SNS Groupe.",
-    "realisations": ["Étudier la couverture du site par des caméras 4K avec infrarouge.", "Présenter une architecture de télésurveillance avec liaisons IP et 4G."]
+    "realisations": [
+      "Étudier la couverture du site par des caméras 4K avec infrarouge.",
+      "Présenter une architecture de télésurveillance avec liaisons IP et 4G."
+    ],
+    "illustration": "Schéma de liaison entre une caméra, un enregistreur et la télésurveillance IP et 4G"
   },
   {
     "slug": "smart-mailbox-notifier",
     "titre": "Smart Mailbox Notifier",
     "resume": "Un projet IoT pour signaler un dépôt dans une boîte aux lettres.",
-    "tags": ["IoT", "Réseau"],
+    "tags": [
+      "IoT",
+      "Réseau"
+    ],
     "contexte": "Projet étudiant autour de la détection et de la transmission à distance.",
-    "realisations": ["Utiliser un capteur ultrason HC-SR04 pour la détection.", "Prévoir la transmission via un module LoRa-E5 et une passerelle LPS8N."]
+    "realisations": [
+      "Utiliser un capteur ultrason HC-SR04 pour la détection.",
+      "Prévoir la transmission via un module LoRa-E5 et une passerelle LPS8N."
+    ],
+    "illustration": "Schéma de transmission entre la boîte aux lettres, le capteur et la passerelle LoRa"
   },
   {
     "slug": "pilotage-crestron",
     "titre": "Pilotage audiovisuel Crestron",
     "resume": "Centraliser les commandes des équipements audiovisuels d’une salle.",
-    "tags": ["Automatisation", "Audiovisuel"],
+    "tags": [
+      "Automatisation",
+      "Audiovisuel"
+    ],
     "contexte": "Projet d’intégration autour d’un vidéoprojecteur Sony, d’équipements Bose, Lumens et Tascam.",
-    "realisations": ["Préparer les commandes et les retours d’état dans Crestron SIMPL.", "Documenter les joins et les macros de commande."]
+    "realisations": [
+      "Préparer les commandes et les retours d’état dans Crestron SIMPL.",
+      "Documenter les joins et les macros de commande."
+    ],
+    "illustration": "Schéma des équipements audiovisuels reliés à la commande Crestron"
   }
 ]

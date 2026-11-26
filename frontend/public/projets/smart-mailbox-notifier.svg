@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320">
+  <rect width="640" height="320" rx="14" fill="#102a22"/>
+  <g font-family="system-ui, sans-serif" fill="#e7f7ed">
+    <text x="30" y="77" font-size="30" font-weight="700">Smart Mailbox Notifier</text>
+    <path d="M200 172h35m-8-7 8 7-8 7m178-7h35m-8-7 8 7-8 7" fill="none" stroke="#9ce0b7" stroke-width="2"/>
+    <g font-size="16"><rect x="30" y="138" width="170" height="68" rx="10" fill="#173b30" stroke="#71b591"/><text x="115" y="179" text-anchor="middle">Boîte aux lettres</text><rect x="235" y="138" width="170" height="68" rx="10" fill="#173b30" stroke="#71b591"/><text x="320" y="179" text-anchor="middle">Capteur HC-SR04</text><rect x="440" y="138" width="170" height="68" rx="10" fill="#173b30" stroke="#71b591"/><text x="525" y="179" text-anchor="middle">Passerelle LPS8N</text></g>
+    <text x="320" y="255" text-anchor="middle" font-size="19" fill="#9ce0b7">LoRa</text>
+  </g>
+</svg>

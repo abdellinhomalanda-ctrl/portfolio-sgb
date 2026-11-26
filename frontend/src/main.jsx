@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Link, NavLink, Route, Routes, useParams } from 'react-router'
 import useApi from './useApi'
@@ -14,6 +14,7 @@ function Donnees({ chemin, children }) {
 function Cartes({ projets }) {
   return <div className="grille">{projets.map((projet) => (
     <article className="carte" key={projet.slug}>
+      <img className="illustration" src={`/projets/${projet.slug}.svg`} alt={projet.illustration} width="640" height="320" loading="lazy" />
       <p className="tags">{projet.tags.join(' · ')}</p>
       <h2><Link to={`/projets/${projet.slug}`}>{projet.titre}</Link></h2>
       <p>{projet.resume}</p>
@@ -70,6 +71,7 @@ function Detail() {
         <p className="tags">{projet.tags.join(' · ')}</p>
         <h1>{projet.titre}</h1>
         <p>{projet.resume}</p>
+        <img className="illustration" src={`/projets/${projet.slug}.svg`} alt={projet.illustration} width="640" height="320" />
         <h2>Contexte</h2>
         <p>{projet.contexte}</p>
         <h2>Mon travail</h2>
@@ -105,6 +107,18 @@ function Parcours() {
 }
 
 function App() {
+  const [theme, setTheme] = useState(() => {
+    try {
+      const memorise = localStorage.getItem('portfolio-theme')
+      if (memorise === 'clair' || memorise === 'sombre') return memorise
+    } catch {}
+    return matchMedia('(prefers-color-scheme: light)').matches ? 'clair' : 'sombre'
+  })
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    try { localStorage.setItem('portfolio-theme', theme) } catch {}
+  }, [theme])
+
   return <>
     <header>
       <Link className="marque" to="/">Abdel Malanda</Link>
@@ -114,6 +128,7 @@ function App() {
         <NavLink to="/competences">Compétences</NavLink>
         <NavLink to="/parcours">Parcours</NavLink>
       </nav>
+      <button className="theme" type="button" onClick={() => setTheme(theme === 'clair' ? 'sombre' : 'clair')}>Mode {theme === 'clair' ? 'sombre' : 'clair'}</button>
     </header>
     <main>
       <Routes>

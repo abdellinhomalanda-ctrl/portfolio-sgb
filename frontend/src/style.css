@@ -34,3 +34,16 @@ p, li { line-height: 1.6; color: #c2d4c9; }
 input, select { padding: 0.65rem; border: 1px solid #597767; border-radius: 0.4rem; color: inherit; background: #18271f; font: inherit; max-width: 100%; }
 .frise { list-style: none; border-left: 2px solid #597767; padding-left: 1.4rem; }
 footer { color: #c2d4c9; border-top: 1px solid #385144; padding-block: 1.4rem; }
+
+.theme { background: transparent; border: 1px solid currentColor; color: inherit; }
+.theme { border-radius: .4rem; padding: .55rem .75rem; cursor: pointer; font: inherit; }
+.theme:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.illustration { display: block; width: 100%; height: auto; border-radius: .4rem; }
+
+:root[data-theme="clair"] { color: #152f23; background: #f2f7f3; color-scheme: light; }
+[data-theme="clair"] nav a, [data-theme="clair"] .marque { color: #152f23; }
+[data-theme="clair"] a, [data-theme="clair"] .tags, [data-theme="clair"] nav a.active, [data-theme="clair"] nav a:hover { color: #17613c; }
+[data-theme="clair"] p, [data-theme="clair"] li, [data-theme="clair"] footer { color: #344c40; }
+[data-theme="clair"] .carte, [data-theme="clair"] input, [data-theme="clair"] select { background: #fff; }
+[data-theme="clair"] .action { background: #17613c; color: #fff; }
+[data-theme="clair"] :is(a, input, select):focus-visible { outline-color: #17613c; }

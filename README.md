@@ -20,3 +20,13 @@ La tâche VS Code « Démarrer le portfolio » lance aussi les deux serveurs apr
 - `frontend/src/` contient les pages, les composants et le hook de chargement.
 
 `npm run build` compile le frontend dans `frontend/dist`.
+
+## Travaux pratiques et oral
+
+- Séances 1 et 2 : `node tp1/analyse.js` affiche le bulletin de promotion.
+- Séance 5 : illustrations techniques, recherche, thème clair/sombre.
+- Séance 6 : [trame de présentation](docs/ORAL.md).
+
+## Déployer sur Vercel
+
+Importer ce dépôt depuis le tableau de bord Vercel, garder la racine du dépôt et lancer le déploiement. Le fichier `vercel.json` définit la compilation de React et le routage. L’entrée `api/[...route].js` exporte l’application Express.
