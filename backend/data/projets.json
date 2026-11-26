@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "videosurveillance-entrepot",
+    "titre": "Vidéosurveillance d’un entrepôt",
+    "resume": "Étude d’une solution de vidéoprotection pour un entrepôt de 10 000 m².",
+    "tags": ["Sûreté", "Réseau"],
+    "contexte": "Projet documenté dans mon rapport d’alternance chez SNS Groupe.",
+    "realisations": ["Étudier la couverture du site par des caméras 4K avec infrarouge.", "Présenter une architecture de télésurveillance avec liaisons IP et 4G."]
+  },
+  {
+    "slug": "smart-mailbox-notifier",
+    "titre": "Smart Mailbox Notifier",
+    "resume": "Un projet IoT pour signaler un dépôt dans une boîte aux lettres.",
+    "tags": ["IoT", "Réseau"],
+    "contexte": "Projet étudiant autour de la détection et de la transmission à distance.",
+    "realisations": ["Utiliser un capteur ultrason HC-SR04 pour la détection.", "Prévoir la transmission via un module LoRa-E5 et une passerelle LPS8N."]
+  },
+  {
+    "slug": "pilotage-crestron",
+    "titre": "Pilotage audiovisuel Crestron",
+    "resume": "Centraliser les commandes des équipements audiovisuels d’une salle.",
+    "tags": ["Automatisation", "Audiovisuel"],
+    "contexte": "Projet d’intégration autour d’un vidéoprojecteur Sony, d’équipements Bose, Lumens et Tascam.",
+    "realisations": ["Préparer les commandes et les retours d’état dans Crestron SIMPL.", "Documenter les joins et les macros de commande."]
+  }
+]
