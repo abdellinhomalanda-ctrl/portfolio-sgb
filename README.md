@@ -2,6 +2,8 @@
 
 Portfolio de Master 2 Smart & Green Building. React et Vite pour l’interface, React Router pour la navigation et Express pour l’API JSON.
 
+[Voir le portfolio en ligne](https://abdel-malanda-portfolio-sgb.yummyessay3.chatgpt.site)
+
 ## Démarrer dans VS Code
 
 1. Cloner : `git clone https://github.com/abdellinhomalanda-ctrl/portfolio-sgb.git`
