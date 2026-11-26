@@ -29,4 +29,9 @@ La tâche VS Code « Démarrer le portfolio » lance aussi les deux serveurs apr
 
 ## Déployer sur Vercel
 
-Importer ce dépôt depuis le tableau de bord Vercel, garder la racine du dépôt et lancer le déploiement. Le fichier `vercel.json` définit la compilation de React et le routage. L’entrée `api/[...route].js` exporte l’application Express.
+1. Importer ce dépôt dans Vercel et choisir `backend/` comme dossier racine du projet Express. Déployer, puis vérifier `/api/projets` sur le domaine attribué à l’API.
+2. Importer le même dépôt dans un second projet Vercel, avec `frontend/` comme dossier racine et le preset Vite. Définir `VITE_API_URL` avec l’origine de l’API, par exemple `https://mon-api.vercel.app`, puis déployer.
+3. Dans le projet backend, définir `FRONTEND_URL` avec l’origine du frontend, par exemple `https://mon-portfolio.vercel.app`, puis redéployer l’API.
+4. Ouvrir le frontend et vérifier la liste des projets et l’actualisation directe d’une fiche.
+
+En local, sans `VITE_API_URL`, Vite transmet les requêtes `/api` à Express sur le port 3000.

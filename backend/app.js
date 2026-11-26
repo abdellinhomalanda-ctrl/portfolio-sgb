@@ -1,13 +1,24 @@
 import express from 'express'
-import { readFileSync } from 'node:fs'
-
-const lire = (nom) => JSON.parse(readFileSync(new URL(`./data/${nom}.json`, import.meta.url), 'utf8'))
-const profil = lire('profil')
-const projets = lire('projets')
-const competences = lire('competences')
-const parcours = lire('parcours')
+import profil from './data/profil.json' with { type: 'json' }
+import projets from './data/projets.json' with { type: 'json' }
+import competences from './data/competences.json' with { type: 'json' }
+import parcours from './data/parcours.json' with { type: 'json' }
 
 export const app = express()
+const originesAutorisees = (process.env.FRONTEND_URL ?? '')
+  .split(',')
+  .map((url) => url.trim().replace(/\/+$/, ''))
+
+app.use('/api', (req, res, next) => {
+  res.vary('Origin')
+  const origine = req.get('Origin')
+  if (origine && originesAutorisees.includes(origine)) {
+    res.set('Access-Control-Allow-Origin', origine)
+  }
+  next()
+})
+
+app.get('/', (req, res) => res.json({ message: 'API Portfolio SGB opérationnelle' }))
 app.get('/api/profil', (req, res) => res.json(profil))
 app.get('/api/projets', (req, res) => {
   const { tag } = req.query
