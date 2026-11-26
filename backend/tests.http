@@ -1,0 +1,19 @@
+GET http://localhost:3000/api/profil
+
+###
+GET http://localhost:3000/api/projets
+
+###
+GET http://localhost:3000/api/projets?tag=IoT
+
+###
+GET http://localhost:3000/api/projets/smart-mailbox-notifier
+
+###
+GET http://localhost:3000/api/projets/inconnu
+
+###
+GET http://localhost:3000/api/competences
+
+###
+GET http://localhost:3000/api/parcours
